@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarlac Provincial Tourism - Explore Tarlac Province</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="shortcut icon" href="LogoIcon/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          void:   '#ffffff',
+          panel:  '#f4f4f5',
+          panel2: '#e4e4e7',
+          ash:    '#d4d4d8',
+          bone:   '#000000',
+          smoke:  '#52525b',
+          ember:  '#0d9488',
+          ember2: '#0f766e',
+          teal:   '#0d9488',
+          tealDim:'#134e4a',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+</head>
+ 
+<body class="bg-void text-bone font-body antialiased">
+ 
+  <!-- ===================== ANIMATED HERO LOGO ===================== -->
+  <div id="logo-stage">
+    <div class="stage-glow"></div>
+    <div id="logo-visual"><img src="LogoIcon/Tourismlogo.png" alt="Tarlac Tourism logo"></div>
+  </div>
+ 
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+ 
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[oklch(0.704 0.14 182.503)] border-b border-ash">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+      
+      <!-- 1. LOGO (Left side) -->
+      <a href="index.html" data-hover class="font-display text-xl tracking-tight flex items-center gap-3">
+        <span class="w-8 h-8 rounded-full border border-ember/60 flex items-center justify-center text-ember text-xs font-mono">
+          <img src="LogoIcon/favicon.ico" class="logo-spin" />
+        </span>
+        <span>TARLAC <span class="text-ember">TOURISM</span></span>
+      </a>
+  
+      <!-- 2. DESKTOP NAVIGATION (Center - Hidden on mobile/tablet, shows on laptop/desktop) -->
+      <nav class="hidden lg:flex items-center gap-9 font-mono text-[15px] tracking-wide text-smoke">
+        
+        <!-- HOME -->
+        <a href="index.html" data-hover class="nav-link hover:text-bone transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          HOME
+        </a>
+        
+        <!-- MAP -->
+        <a href="map.html" data-hover class="nav-link hover:text-bone transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+            <line x1="9" y1="3" x2="9" y2="18"></line>
+            <line x1="15" y1="6" x2="15" y2="21"></line>
+          </svg>
+          MAP
+        </a>
+        
+        <!-- ACCOMMODATIONS -->
+        <a href="accommodations.html" data-hover class="nav-link hover:text-bone transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
+          </svg>
+          ACCOMMODATIONS
+        </a>
+  
+        <!-- UNLOCK TARLAC Mega Menu Trigger -->
+        <div class="relative megamenu-group">
+          <button id="megaMenuBtn" data-hover aria-expanded="false" aria-controls="mega-menu"
+            class="nav-link hover:text-bone transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            UNLOCK TARLAC
+            <svg id="megaMenuChevron" width="10" height="6" viewBox="0 0 10 6" fill="none" class="transition-transform duration-300"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+        </div>
+  
+        <!-- ABOUT -->
+        <a href="about.html" data-hover class="nav-link hover:text-bone transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          ABOUT
+        </a>
+      </nav>
+  
+      <!-- 3. RIGHT SIDE CONTROLS (Grouped to avoid breaking flex layout) -->
+      <div class="flex items-center gap-4">
+        
+        <!-- CTA BUTTON (VIEW DIORAMA) - Hidden on mobile, shows on tablet/laptop/desktop -->
+        <a href="#stays" data-hover class="magnetic hidden md:inline-flex items-center gap-2 border border-ember/60 text-ember font-mono text-sm tracking-wider px-5 py-2.5 rounded-full hover:bg-ember hover:text-void transition-colors">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          VIEW DIORAMA
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="ml-1"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+  
+        <!-- Mobile Hamburger Button - Shows on mobile/tablet, hidden on laptop/desktop -->
+        <button id="menuBtn" data-hover aria-label="Open menu" aria-expanded="false" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 border border-ash rounded-full">
+          <span class="hamburger-line block w-4 h-px bg-bone transition-all duration-300"></span>
+          <span class="hamburger-line block w-4 h-px bg-bone transition-all duration-300"></span>
+        </button>
+  
+      </div>
+    </div> <!-- This properly closes max-w-7xl flex container -->
+
+    <!-- ===================== MEGA MENU PANEL ===================== -->
+    <div id="mega-menu"
+      class="hidden absolute top-full left-0 w-full bg-[oklch(0.704_0.14_182.503)] border-t border-b border-ash shadow-2xl"
+      role="region" aria-label="Unlock Tarlac menu">
+      
+      <!-- Close button -->
+      <button id="megaMenuClose" data-hover aria-label="Close menu"
+        class="absolute top-5 right-6 md:right-10 w-9 h-9 rounded-full border border-ash flex items-center justify-center text-smoke hover:text-ember hover:border-ember transition-colors">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-12">
+
+        <!-- Tabs -->
+        <div class="flex items-center gap-8 font-mono text-sm tracking-wide mb-8 border-b border-ash pb-4">
+          <button data-mega-tab="categories" class="mega-tab text-bone font-semibold relative pb-1">
+            Tourism Categories
+          </button>
+          <button data-mega-tab="municipalities" class="mega-tab text-smoke hover:text-bone transition-colors relative pb-1">
+            Municipalities &amp; City
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 md:gap-12">
+
+          <!-- Left: image + blurb -->
+          <div>
+            <div class="rounded-xl overflow-hidden aspect-[4/3] mb-5">
+              <img src="YourDayAtDioramaImages/historyTarlac.jpg" alt="Diwa ng Tarlac"
+                class="w-full h-full object-cover" />
+            </div>
+            <h3 class="font-display font-bold text-xl mb-2">Diwa ng Tarlac</h3>
+            <p class="text-sm text-smoke leading-relaxed">
+              From the province's top destinations to sites off the beaten path — unlock every corner of Tarlac.
+            </p>
+          </div>
+
+          <!-- Right: link panels -->
+          <div>
+
+            <!-- Panel: Tourism Categories -->
+            <div data-mega-panel="categories" class="mega-panel grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-4 font-body text-[15px] font-medium">
+              <a href="adventures.html" data-hover class="hover:text-ember transition-colors">Adventure</a>
+              <a href="eco-tourism.html" data-hover class="hover:text-ember transition-colors">Eco-Tourism</a>
+              <a href="festivals.html" data-hover class="hover:text-ember transition-colors">Festivals</a>
+              <a href="food.html" data-hover class="hover:text-ember transition-colors">Food</a>
+              <a href="religion.html" data-hover class="hover:text-ember transition-colors">Faith</a>
+              <a href="accommodations.html" data-hover class="hover:text-ember transition-colors">Accommodations</a>
+              <a href="diorama.html" data-hover class="hover:text-ember transition-colors">Museo ng Kanlahi</a>
+              <a href="statistic.html" data-hover class="hover:text-ember transition-colors">Visitor Insights</a>
+              <a href="map.html" data-hover class="hover:text-ember transition-colors">Province Map</a>
+            </div>
+
+            <!-- Panel: Municipalities -->
+            <div data-mega-panel="municipalities" class="mega-panel hidden grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-4 font-body text-[15px] font-medium">
+              <a href="#" data-hover class="hover:text-ember transition-colors">Anao</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Bamban</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Capas</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Camiling</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Concepcion</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Gerona</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">La Paz</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Mayantoc</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Moncada</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Paniqui</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Pura</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Ramos</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">San Clemente</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Santa Ignacia</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">San Manuel</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">San Jose</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors font-semibold text-ember">Tarlac City</a>
+              <a href="#" data-hover class="hover:text-ember transition-colors">Victoria</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 4. MOBILE SLIDE-DOWN MENU (Placed strictly inside header, outside the flex container) -->
+    <div id="mobileMenu" class="lg:hidden max-h-0 overflow-hidden transition-[max-height] duration-400 ease-in-out bg-[#00a8a6] border-t border-ash">
+      <nav class="flex flex-col px-6 py-6 gap-1 font-mono text-base tracking-wide">
+        
+        <a href="index.html" data-hover class="flex items-center gap-3 py-3 border-b border-ash text-bone">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          HOME
+        </a>
+        
+        <a href="map.html" data-hover class="flex items-center gap-3 py-3 border-b border-ash text-bone">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+            <line x1="9" y1="3" x2="9" y2="18"></line>
+            <line x1="15" y1="6" x2="15" y2="21"></line>
+          </svg>
+          MAP
+        </a>
+        
+        <a href="accommodations.html" data-hover class="flex items-center gap-3 py-3 border-b border-ash text-bone">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
+          </svg>
+          ACCOMMODATIONS
+        </a>
+        
+        <!-- ===== UNLOCK TARLAC — Mobile Mega Menu ===== -->
+        <div class="pt-4 pb-3">
+          <p class="text-xs text-smoke uppercase tracking-widest flex items-center gap-2 mb-4">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Unlock Tarlac
+          </p>
+
+          <!-- Tabs -->
+          <div class="flex items-center gap-6 font-mono text-xs tracking-wide mb-4 border-b border-ash pb-3">
+            <button data-mega-tab-m="categories" class="mega-tab-m text-bone font-semibold">
+              Tourism Categories
+            </button>
+            <button data-mega-tab-m="municipalities" class="mega-tab-m text-smoke">
+              Municipalities &amp; City
+            </button>
+          </div>
+
+          <!-- Panel: Tourism Categories -->
+          <div data-mega-panel-m="categories" class="mega-panel-m grid grid-cols-2 gap-x-4 gap-y-1 font-body text-sm font-medium">
+            <a href="adventures.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Adventure</a>
+            <a href="eco-tourism.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Eco-Tourism</a>
+            <a href="festivals.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Festivals</a>
+            <a href="food.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Food</a>
+            <a href="religion.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Faith</a>
+            <a href="accommodations.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Accommodations</a>
+            <a href="diorama.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Museo ng Kanlahi</a>
+            <a href="statistic.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Visitor Insights</a>
+            <a href="map.html" data-hover class="py-2 text-bone hover:text-ember transition-colors">Province Map</a>
+          </div>
+
+          <!-- Panel: Municipalities -->
+          <div data-mega-panel-m="municipalities" class="mega-panel-m hidden grid grid-cols-2 gap-x-4 gap-y-1 font-body text-sm font-medium">
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Anao</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Bamban</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Capas</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Camiling</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Concepcion</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Gerona</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">La Paz</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Mayantoc</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Moncada</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Paniqui</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Pura</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Ramos</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">San Clemente</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Santa Ignacia</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">San Manuel</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">San Jose</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors font-semibold text-ember">Tarlac City</a>
+            <a href="#" data-hover class="py-2 text-bone hover:text-ember transition-colors">Victoria</a>
+          </div>
+        </div>
+
+        <a href="about.html" data-hover class="flex items-center gap-3 py-3 border-y border-ash text-bone">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          ABOUT
+        </a>
+        
+        <a href="#stays" data-hover class="mt-5 inline-flex items-center justify-center gap-2 border border-ember/60 text-ember px-5 py-3 rounded-full text-sm">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          VIEW Diorama
+        </a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="relative min-h-screen flex flex-col justify-center overflow-hidden px-6 md:px-10 pt-20">
+    <div class="contour-bg"></div>
+    <div class="grain"></div>
+
+    <!-- topographic contour svg -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.18]" viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <g fill="none" stroke="#0d9488" stroke-width="1">
+        <path d="M0,600 C200,520 300,650 500,560 C700,470 800,600 1200,520" />
+        <path d="M0,650 C220,580 320,690 520,610 C720,520 820,640 1200,570" />
+        <path d="M0,700 C240,640 340,730 540,660 C740,570 840,680 1200,620" />
+      </g>
+      <g fill="none" stroke="#0d9488" stroke-width="1">
+        <path d="M0,120 C180,180 280,80 480,140 C680,200 780,90 1200,150" />
+        <path d="M0,170 C200,230 300,130 500,190 C700,250 800,140 1200,200" />
+      </g>
+    </svg>
+
+    <div class="relative max-w-7xl mx-auto w-full">
+      <p class="eyebrow reveal text-ember text-xs md:text-sm uppercase mb-6">Provincial Tourism Office — Central Luzon, PH</p>
+
+      <h1 class="reveal reveal-delay-1 font-display font-semibold leading-[0.95] text-[clamp(2.5rem,13vw,5.5rem)] md:text-[clamp(3.5rem,7.5vw,6.5rem)] lg:text-[clamp(4rem,6.2vw,7.5rem)] break-words">
+        TARLAC<br><span style="color: oklch(0.511 0.096 186.391);">PROVINCE</span>
+      </h1>
+
+      <div class="reveal reveal-delay-2 mt-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <p class="max-w-xl text-smoke text-base md:text-lg leading-relaxed"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">
+          Tarlac is a landlocked province located in the Central Luzon region of the Philippines. Because it is landlocked, it does not have a coastline. It is shaped somewhat like a triangle and is bordered by Pangasinan to the north, Nueva Ecija to the east, Zambales to the west, and Pampanga to the south. <br> The province covers a total land area of approximately 3,053 square kilometers. Its terrain is a mix of vast, flat plains in the eastern part (making up about 75% of the province), which are ideal for agriculture, and rugged, hilly, or mountainous areas in the west. A portion of the famous Mount Pinatubo is also located within the province.
+          <span class="text-bone font-medium" id="typewriter"></span><span class="type-caret">&nbsp;</span>
+        </p>
+      
+      
+      
+      </a>
+
+  
+      </div>
+    </div>
+
+    <!-- quick tick row -->
+    <div class="reveal reveal-delay-3 relative max-w-7xl mx-auto w-full mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-3 tick-row border-t border-ash pt-6">
+      <span class="sm:pr-6 font-mono text-xs text-smoke"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">FOUNDED <b class="text-bone">1873</b></span></a>
+      <span class="sm:px-6 font-mono text-xs text-smoke"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">AREA <b class="text-bone">3,053 KM²</b></span></a>
+      <span class="sm:px-6 font-mono text-xs text-smoke"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">MUNICIPALITIES <b class="text-bone">17 + 1 CITY</b></span></a>
+      <span class="sm:pl-6 font-mono text-xs text-smoke"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">BARANGAYS <b class="text-bone">511</b></span>
+    </div></a>
+  </section>
+
+   <!-- ============ QUICK TICKER ============ -->
+   <div class="border-y border-line bg-panel/60 overflow-hidden py-3">
+    <div class="ticker-track font-mono text-[11px] tracking-widest text-inkdim">
+      <span class="flex items-center gap-16 pr-16">
+        <span>Anao</span>
+        <span class="text-gold">·</span>
+        <span>|Bamban</span>
+        <span class="text-gold">·</span>
+        <span>Capas</span>
+        <span class="text-gold">·</span>
+        <span>Camiling</span>
+        <span class="text-gold">·</span>
+        <span>Concepcion</span>
+        <span class="text-gold">·</span>
+        <span>Gerona</span>
+        <span class="text-gold">·</span>
+        <span>La Paz</span>
+        <span class="text-gold">·</span>
+        <span>Mayantoc</span>
+        <span class="text-gold">·</span>
+        <span>Moncada</span>
+        <span class="text-gold">·</span>
+        <span>Paniqui</span>
+        <span class="text-gold">·</span>
+        <span>Pura</span>
+        <span class="text-gold">·</span>
+        <span>Ramos</span>
+        <span class="text-gold">·</span>
+        <span>San Clemente</span>
+        <span class="text-gold">·</span>
+        <span>Santa Ignacia</span>
+        <span class="text-gold">·</span>
+        <span>San Manuel</span>
+        <span class="text-gold">·</span>
+        <span>San Jose</span>
+        <span class="text-gold">·</span>
+        <span>Tarlac City</span>
+        <span class="text-gold">·</span>
+        <span>Victoria</span>
+        <span class="text-gold">·</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===================== EXPLORE GALLERY (Category + Location filter) ===================== -->
+<section id="explore" class="relative py-28 px-6 md:px-10 border-t border-ash overflow-hidden">
+  <div class="contour-bg"></div>
+  <div class="relative max-w-7xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="eyebrow reveal text-teal text-xs uppercase mb-4">00 — Explore by Category &amp; Location</p>
+        <h2 class="reveal reveal-delay-1 font-display text-4xl md:text-5xl font-semibold">Unlock Every Corner<br class="hidden md:block"> of Tarlac</h2>
+      </div>
+      <p class="reveal reveal-delay-2 max-w-md text-smoke text-sm leading-relaxed">
+        Pick a category, then narrow it down to a municipality or the city — hover any card to preview the details.
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div id="galleryCategoryTabs" class="reveal reveal-delay-1 flex flex-wrap gap-2.5 mb-6">
+      <button type="button" data-hover data-category="all" class="gallery-tab active-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">All</button>
+      <button type="button" data-hover data-category="accommodation" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Accommodation</button>
+      <button type="button" data-hover data-category="adventures" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Adventures</button>
+      <button type="button" data-hover data-category="eco-tourism" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Eco-Tourism</button>
+      <button type="button" data-hover data-category="churches" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Churches</button>
+      <button type="button" data-hover data-category="foods" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Foods</button>
+      <button type="button" data-hover data-category="museum" class="gallery-tab font-mono text-xs tracking-wide px-5 py-2.5 rounded-full border border-ash transition-colors">Museum</button>
+    </div>
+
+    <!-- Location Filter -->
+    <div class="reveal reveal-delay-2 flex flex-col sm:flex-row sm:items-center gap-3 mb-10">
+      <label for="galleryLocation" class="font-mono text-[11px] uppercase tracking-widest text-smoke shrink-0">Location</label>
+      <select id="galleryLocation"
+        class="deal-control font-body text-sm bg-void border border-ash rounded-lg px-3 py-2.5 min-w-[220px] focus:outline-none focus:border-ember transition-colors">
+        <option value="all">All</option>
+        <option value="Anao">Anao</option>
+        <option value="Bamban">Bamban</option>
+        <option value="Capas">Capas</option>
+        <option value="Camiling">Camiling</option>
+        <option value="Concepcion">Concepcion</option>
+        <option value="Gerona">Gerona</option>
+        <option value="La Paz">La Paz</option>
+        <option value="Mayantoc">Mayantoc</option>
+        <option value="Moncada">Moncada</option>
+        <option value="Paniqui">Paniqui</option>
+        <option value="Pura">Pura</option>
+        <option value="Ramos">Ramos</option>
+        <option value="Santa Ignacia">Santa Ignacia</option>
+        <option value="San Clemente">San Clemente</option>
+        <option value="San Jose">San Jose</option>
+        <option value="San Manuel">San Manuel</option>
+        <option value="Tarlac City">Tarlac City</option>
+        <option value="Victoria">Victoria</option>
+      </select>
+    </div>
+
+    <!-- Card Grid (Horizontal Slider) -->
+    <div id="galleryGrid" class="flex gap-6 overflow-x-auto no-scrollbar cursor-grab px-4 -mx-4 pt-4 pb-10 reveal reveal-delay-2 snap-x snap-mandatory">
+
+      <!-- ================= ACCOMMODATION ================= -->
+      <a href="accommodations.html#la-maja-rica-hotel" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="accommodation" data-location="Tarlac City" style="background-image:url('Hotels/la-maja-rica-5.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-ember !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Accommodation</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">La Maja Rica Hotel</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Tarlac City
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Well-appointed rooms near downtown, popular with business and leisure travelers.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="accommodations.html#luisita-central-park-hotel" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="accommodation" data-location="Tarlac City" style="background-image:url('Hotels/luisita-hotel-3.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-ember !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Accommodation</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Luisita Central Park Hotel</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Tarlac City
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">A landmark park-side hotel offering full-service stays for families and groups.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="accommodations.html#achitel-tarlac" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="accommodation" data-location="Victoria" style="background-image:url('Hotels/achitel.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-ember !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Accommodation</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Achitel Tarlac</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Victoria
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">A cozy aparthotel option for travelers exploring the province's southern towns.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ================= ADVENTURES ================= -->
+      <a href="adventures.html#mt-pinatubo-lahar-trail" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="adventures" data-location="Capas" style="background-image:url('YourDayAtDioramaImages/mapTarlac.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-teal !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Adventures</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Mt. Pinatubo Lahar Trail</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Capas
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">ATV and 4x4 lahar trail rides leading up to the crater lake trailhead.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="adventures.html#mayantoc-river-trek" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="adventures" data-location="Mayantoc" style="background-image:url('YourDayAtDioramaImages/gallery-pic.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-teal !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Adventures</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Mayantoc River Trek</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Mayantoc
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Hiking and river trekking routes through the province's western highlands.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="adventures.html#san-clemente-falls-trail" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="adventures" data-location="San Clemente" style="background-image:url('YourDayAtDioramaImages/historyTarlac.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-teal !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Adventures</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">San Clemente Falls Trail</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> San Clemente
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Waterfall trekking and swimming holes tucked into the western foothills.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ================= ECO-TOURISM ================= -->
+      <a href="eco-tourism.html#concepcion-farm-park" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="eco-tourism" data-location="Concepcion" style="background-image:url('YourDayAtDioramaImages/kasaysayan.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#0ea5a3] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Eco-Tourism</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Concepcion Farm Park</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Concepcion
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Farm tourism circuit showcasing the province's agricultural heritage.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="eco-tourism.html#gerona-green-space" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="eco-tourism" data-location="Gerona" style="background-image:url('YourDayAtDioramaImages/kanlahi.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#0ea5a3] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Eco-Tourism</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Gerona Green Space</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Gerona
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">A recreational park built around native trees and open lawns.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ================= CHURCHES ================= -->
+      <a href="religion.html#monasterio-de-tarlac" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="churches" data-location="Tarlac City" style="background-image:url('YourDayAtDioramaImages/dio.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#a21caf] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Churches</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Monasterio de Tarlac</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Tarlac City
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">A hilltop pilgrimage site overlooking the plains, popular for quiet reflection.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="religion.html#paniqui-parish-church" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="churches" data-location="Paniqui" style="background-image:url('YourDayAtDioramaImages/govcy1.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#a21caf] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Churches</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Paniqui Parish Church</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Paniqui
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">A heritage parish church at the heart of the town proper.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ================= FOODS ================= -->
+      <a href="food.html#tarlac-city-food-row" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="foods" data-location="Tarlac City" style="background-image:url('Hotels/l-square.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#f97316] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Foods</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Tarlac City Food Row</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Tarlac City
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Local eateries serving regional dishes shaped by the sugarcane trade.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="food.html#camiling-public-market-eats" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="foods" data-location="Camiling" style="background-image:url('Hotels/asiaten-hotel.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#f97316] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Foods</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Camiling Public Market</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Camiling
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">Market-fresh local flavors and home-style Tarlaqueño cooking.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ================= MUSEUM ================= -->
+      <a href="diorama.html#museo-ng-kanlahi" data-hover class="gallery-card group relative shrink-0 w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ash bg-cover bg-center snap-center block shadow-lg shadow-[oklch(0.953_0.051_180.801)]/60 hover:shadow-2xl hover:shadow-[oklch(0.953_0.051_180.801)] transition-shadow duration-300" data-category="museum" data-location="Tarlac City" style="background-image:url('YourDayAtDioramaImages/diorama.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="absolute top-4 left-4 z-10 bg-[#71717a] !text-white font-mono text-[10px] font-semibold px-3 py-1 rounded-full">Museum</span>
+        <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,1,0.2,1)]">
+            <h3 class="font-display font-semibold !text-white text-xl sm:text-2xl leading-tight mb-1">Museo ng Kanlahi</h3>
+            <p class="font-mono text-[11px] !text-white flex items-center gap-1.5 mb-3">
+              <svg class="w-3 h-3 shrink-0 !text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 105 9.5C5 14.42 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Tarlac City
+            </p>
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <p class="text-sm !text-white leading-relaxed">The province's diorama museum tracing its history and cultural communities.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+</section>
+
+  <!-- ===================== DEMOGRAPHIC / HERITAGE MOSAIC ===================== -->
+  <section id="stays" class="relative py-4 px-6 md:px-10 border-t border-ash overflow-hidden bg-[oklch(0.91 0.096 180.426)]">
+    <div class="contour-bg"></div>
+    
+ 
+
+  <!-- ===================== DIORAMA SHOWCASE ===================== -->
+  <!-- Prev Arrow -->
+  <section id="diorama" class="relative py-14 sm:py-16 md:py-20 px-14 sm:px-16 md:px-20 lg:px-24 overflow-hidden min-h-[80vh] flex items-center justify-center">
+ 
+    <!-- Prev Arrow (Hidden initially) -->
+    <button id="dioramaPrev" data-hover type="button" aria-label="Previous"
+      class="absolute left-1 sm:left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 hidden items-center justify-center text-white/70 hover:text-white hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+      <svg class="w-3 h-5 md:w-3.5 md:h-6" viewBox="0 0 14 24" fill="none"><path d="M11 2L2 12l9 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+   
+    <!-- Diorama Gallery -->
+    <div id="diorama-gallery" class="relative max-w-6xl mx-auto w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+   
+        <!-- Card 1: Text — Your Day at the Diorama -->
+        <a href="diorama.html" class="stat-card reveal rounded-2xl p-5 sm:p-6 md:p-7 flex items-center justify-center px-6 sm:px-8 text-center aspect-[4/3] sm:aspect-auto sm:min-h-[260px] md:min-h-[300px] cursor-pointer hover:opacity-90 transition-opacity block" style="background-color: oklch(0.777 0.152 181.912);">
+          <div>
+            <p class="eyebrow1 text-teal text-[10px] sm:text-xs uppercase mb-3 sm:mb-4">01 — The History and Cultures</p>
+            <h3 class="font-display uppercase font-bold leading-tight text-2xl sm:text-3xl md:text-4xl text-black">
+              Your Day At<br>the Diorama
+            </h3>
+          </div>
+        </a>
+   
+        <!-- Card 2: Photo Collage — Diorama Interior -->
+        <div class="diorama-slide reveal relative rounded-md shadow-xl aspect-[4/3] bg-[#1c1b19]">
+          <div class="absolute inset-0 rounded-md overflow-hidden">
+            <img src="YourDayAtDioramaImages/diorama.jpg" alt="Museo ng Kanlahi diorama hallway" data-hover
+              data-lightbox="YourDayAtDioramaImages/diorama.jpg" data-caption="Museo ng Kanlahi — Diorama Hallway"
+              class="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105" />
+          </div>
+          <img src="YourDayAtDioramaImages/mapTarlac.jpg" alt="Diorama exhibit display" data-hover
+            data-lightbox="YourDayAtDioramaImages/mapTarlac.jpg" data-caption="Diorama Exhibit — Map of Tarlac"
+            class="absolute w-[62%] top-[10%] right-[4%] rounded-sm shadow-lg object-cover aspect-[4/3] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+          <img src="YourDayAtDioramaImages/gallery-pic.jpg" alt="Diorama figures and map exhibit" data-hover
+            data-lightbox="YourDayAtDioramaImages/gallery-pic.jpg" data-caption="Diorama Exhibit — Figures & Map"
+            class="absolute w-[68%] bottom-[6%] left-[6%] rounded-sm shadow-lg object-cover aspect-[16/9] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+          <img src="YourDayAtDioramaImages/historyTarlac.jpg" alt="Museum mural artwork" data-hover
+            data-lightbox="YourDayAtDioramaImages/historyTarlac.jpg" data-caption="Museum Mural Artwork"
+            class="absolute w-[50%] bottom-[10%] right-[6%] rounded-sm shadow-lg object-cover aspect-[16/9] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+        </div>
+   
+        <!-- Card 3: Photo Collage — Kasaysayan ng Tarlac -->
+        <div class="diorama-slide reveal relative rounded-md shadow-xl aspect-[4/3] bg-[#1c1b19]">
+          <div class="absolute inset-0 rounded-md overflow-hidden">
+            <img src="YourDayAtDioramaImages/mapTarlac.jpg" alt="Kasaysayan ng Tarlac history panels" data-hover
+              data-lightbox="YourDayAtDioramaImages/mapTarlac.jpg" data-caption="Kasaysayan ng Tarlac — History Panels"
+              class="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105" />
+          </div>
+          <img src="YourDayAtDioramaImages/kasaysayan.jpg" alt="Museo ng Kanlahi gallery wall" data-hover
+            data-lightbox="YourDayAtDioramaImages/kasaysayan.jpg" data-caption="Museo ng Kanlahi — Gallery Wall"
+            class="absolute w-[64%] bottom-[6%] right-[5%] rounded-sm shadow-lg object-cover aspect-[4/3] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+          <img src="YourDayAtDioramaImages/kanlahi.jpg" alt="Museo ng Kanlahi signage" data-hover
+            data-lightbox="YourDayAtDioramaImages/kanlahi.jpg" data-caption="Museo ng Kanlahi — Signage"
+            class="absolute w-[26%] top-[20%] left-[10%] rounded-sm shadow-lg object-cover aspect-[3/4] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+        </div>
+   
+        <!-- Card 4: Text — Come & Discover History of Tarlac -->
+        <div class="stat-card reveal rounded-2xl p-5 sm:p-6 md:p-7 flex items-center justify-center px-6 sm:px-8 text-center aspect-[4/3] sm:aspect-auto sm:min-h-[260px] md:min-h-[300px]" style="background-color: oklch(0.777 0.152 181.912);">
+          <div>
+            <h3 class="font-display uppercase leading-tight">
+             <a href="diorama.html" data-hover class="magnetic inline-flex items-center gap-3  text-void font-mono text-sm tracking-wide px-8 py-4 rounded-full hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+              <span class="block font-bold text-xl sm:text-2xl md:text-3xl mb-1.5 sm:mb-2">Come &amp; Discover</span></a>
+              <span class="block font-semibold text-2xl sm:text-3xl md:text-4xl" style="color: #cda87c;">History of Tarlac</span>
+            </h3>
+            <p class="max-w-md mx-auto text-xs sm:text-sm leading-relaxed mt-3 sm:mt-4 text-[#3a3227]">
+              Discover the rich cultural heritage and vibrant history of Tarlac at the Museo ng Kanlahi. From ancient
+              artifacts to modern exhibits, our museum celebrates the people, places, and events that shaped the
+              province. Step into the stories that define Tarlac.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </section>
+
+  <!-- ===================== DIORAMA LIGHTBOX MODAL ===================== -->
+<div id="diorama-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 sm:p-6">
+  <button id="diorama-lightbox-close" data-hover aria-label="Close"
+    class="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/30 bg-white/90 flex items-center justify-center text-black hover:text-ember hover:border-ember transition-colors">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.6"/></svg>
+  </button>
+  <div class="max-w-4xl w-full">
+    <img id="diorama-lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain rounded-xl" />
+    <p id="diorama-lightbox-caption" class="text-white text-xs sm:text-sm mt-3 sm:mt-4 text-center font-mono px-2"></p>
+  </div>
+</div>
+ 
+<!-- ===================== DIORAMA SHOWCASE ===================== -->
+
+
+  <!-- ===================== TOP DESTINATIONS ===================== -->
+<section id="tourism" class="relative py-28 px-6 md:px-10 border-t border-ash">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div>
+          <p class="eyebrow reveal text-teal text-xs uppercase mb-4">02 — Unlock Tarlac</p>
+          <h2 class="reveal reveal-delay-1 font-display text-4xl md:text-5xl font-semibold"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">Top Destination Categories</h2></a>
+        </div>
+        <p class="reveal reveal-delay-2 max-w-md text-smoke text-sm leading-relaxed"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">
+          Every card below routes to the province's own destination guide —
+          hover to preview, click to explore the full page.
+        </p></a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Adventure -->
+        <a href="adventures.html" data-hover class="tilt-card reveal relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-ember2/40 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-ember/80" viewBox="0 0 24 24" fill="none"><path d="M4 20l6-14 3 7 2-4 5 11H4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Adventure</h3>
+                <span class="font-mono text-[11px] text-ember">05 SITES</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">Paramotoring, ATV lahar trails, kayaking, hiking &amp; mountain biking around Mt. Pinatubo and Monasterio de Tarlac.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Eco-Tourism -->
+        <a href="eco-tourism.html" data-hover class="tilt-card reveal reveal-delay-1 relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-teal/40 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-teal/90" viewBox="0 0 24 24" fill="none"><path d="M12 3c3 4 6 6 6 10a6 6 0 01-12 0c0-4 3-6 6-10z" stroke="currentColor" stroke-width="1.4"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Eco-Tourism</h3>
+                <span class="font-mono text-[11px] text-teal">FARMS &amp; PARKS</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">Farm tourism, recreational parks and green spaces built around the province's agricultural heritage.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Festivals -->
+        <a href="festivals.html" data-hover class="tilt-card reveal reveal-delay-2 relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-ember/30 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-ember/80" viewBox="0 0 24 24" fill="none"><path d="M12 2v6M6 8l2 4M18 8l-2 4M4 14h16l-2 8H6l-2-8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Festivals</h3>
+                <span class="font-mono text-[11px] text-ember">YEAR-ROUND</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">From La Jota Moncadenia to town fiestas — the cultural calendar that defines Tarlaqueño identity.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Food -->
+        <a href="food.html" data-hover class="tilt-card reveal relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-ember2/40 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-ember/80" viewBox="0 0 24 24" fill="none"><path d="M6 3v8a3 3 0 003 3h0V3M6 3v0M9 3v0M12 3v6M18 3c-2 0-3 2-3 4s1 4 3 4v10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Food</h3>
+                <span class="font-mono text-[11px] text-ember">LOCAL FLAVORS</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">Tarlac's kitchen table — regional dishes shaped by sugarcane fields and generations of local cooking.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Faith -->
+        <a href="religion.html" data-hover class="tilt-card reveal reveal-delay-1 relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-teal/30 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-teal/90" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M6 8h12M8 4h8" stroke="currentColor" stroke-width="1.4"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Faith</h3>
+                <span class="font-mono text-[11px] text-teal">PILGRIMAGE</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">Monasterio de Tarlac and other sites of quiet reflection, overlooking the province from its hillsides.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Accommodations -->
+        <a href="accommodations.html" data-hover class="tilt-card reveal reveal-delay-2 relative rounded-2xl group">
+          <div class="tilt-glow"></div>
+          <div class="tilt-inner relative rounded-2xl overflow-hidden bg-panel border border-ash h-full">
+            <div class="relative h-52 overflow-hidden bg-gradient-to-br from-ember2/30 via-void to-void flex items-center justify-center">
+              <svg class="tilt-media w-16 h-16 text-ember/80" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <div class="absolute inset-0 bg-gradient-to-t from-panel via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-display text-xl">Accommodations</h3>
+                <span class="font-mono text-[11px] text-ember">6 FEATURED</span>
+              </div>
+              <p class="text-sm text-smoke leading-relaxed">
+                From Luisita Central Park Hotel to boutique aparthotels in San Sebastian — stays for every traveler.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <!-- ===================== CTA ===================== -->
+  <div class="relative max-w-4xl mx-auto text-center">
+    <p class="eyebrow reveal text-ember text-xs uppercase mb-6">Plan your visit</p>
+    <h2 class="reveal reveal-delay-1 font-display text-4xl md:text-6xl font-semibold leading-tight mb-8">
+      The data says <span class="text-ember">come see it</span> yourself.
+    </h2>
+    <a href="tourismofficer.html" data-hover class="magnetic inline-flex items-center gap-3 bg-ember text-void font-mono text-sm tracking-wide px-8 py-4 rounded-full hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+      TALK TO A TOURISM OFFICER
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+    </a>
+  </div>
+</section>
+
+  <!-- ===================== SITE-LEVEL VISITOR INSIGHTS ===================== -->
+  <section id="Site" class="relative py-28 px-6 md:px-10 border-t border-ash overflow-hidden">
+    <div class="contour-bg"></div>
+    <div class="grain"></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="eyebrow reveal text-teal text-xs uppercase mb-4">03 — Site-Level Insight</p>
+        <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-4xl font-semibold">
+          Visitor's Statistical Overview <span class="text-ember">of Tourist Sites</span>
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-2 max-w-md text-smoke text-sm leading-relaxed">
+        Visitor statistics aggregated from monthly tourism reports submitted by <span class="text-ember2">Municipalities and the City</span>, across the province.
+      </p>
+    </div>
+     <!-- KPI CARDS -->
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10">
+      <div class="stat-card reveal rounded-2xl p-5">
+        <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-4">Total Day-Tour Visitors for 2025</p>
+        <p class="stat-num text-2xl sm:text-3xl font-semibold text-ember"><span id="kpiTotal" data-count="1369883"></span></p>
+      </div>
+      <div class="stat-card reveal reveal-delay-1 rounded-2xl p-5">
+        <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-4">Domestic</p>
+        <p class="stat-num text-2xl sm:text-3xl font-semibold text-teal"><span id="kpiDomestic" data-count="1362920">1362920/span></p>
+      </div>
+      <div class="stat-card reveal reveal-delay-2 rounded-2xl p-5">
+        <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-4">Foreign</p>
+        <p class="stat-num text-2xl sm:text-3xl font-semibold text-bone"><span id="kpiForeign" data-count="6963">6963</span></p>
+      </div>
+      <div class="stat-card reveal reveal-delay-3 rounded-2xl p-5">
+        <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-4">Reporting Municipalities</p>
+        <p class="stat-num text-2xl sm:text-3xl font-semibold text-bone"><span id="kpiSites" data-count="14"></span>/18</p>
+      </div>
+    </div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      
+      <a href="statistic.html" data-hover class="magnetic inline-flex items-center gap-3 bg-ember text-void font-mono text-sm tracking-wide px-8 py-4 rounded-full hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+        VISITOR INSIGHTS
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ===================== About Tarlac ===================== -->
+  <section id="dashboard" class="relative py-28 px-6 md:px-10 border-t border-ash">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
+        <div>
+          <p class="eyebrow reveal text-teal text-xs uppercase mb-4">04 — The Province At A Glance</p>
+          <h2 class="reveal reveal-delay-1 font-display text-4xl md:text-5xl font-semibold"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">Discover Tarlac</h2>
+        </div>
+        <p class="reveal reveal-delay-2 max-w-md text-smoke text-sm leading-relaxed"><a href="#" class="text-smoke hover:text-ember transition-colors duration-200">
+          Often referred to as the "Melting Pot of Central Luzon," Tarlac is known for its diverse population. The province is home to a mix of several ethnic groups, primarily the Kapampangans in the south, Ilocanos and Pangasinenses in the north, and Tagalogs near the border with Nueva Ecija.
+        </p></a>
+      </div>
+  
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mt-10 sm:mt-14">
+  
+        <div class="stat-card reveal reveal-delay-2 rounded-2xl p-5 sm:p-6 md:p-7" style="background-color: oklch(0.777 0.152 181.912);">
+          <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-6">Heritage Cultures</p>
+          <p class="stat-num text-3xl sm:text-4xl md:text-5xl font-semibold break-words text-bone" data-count="7">0</p>
+          <p class="text-xs text-smoke mt-3">Kapampangan, Ilocano, Tagalog, Pangasinense, Fil-Chinese, Muslim &amp; Aeta communities</p>
+        </div>
+  
+        <div class="stat-card reveal reveal-delay-3 rounded-2xl p-5 sm:p-6 md:p-7" style="background-color: oklch(0.777 0.152 181.912);">
+          <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-6">Barangays</p>
+          <p class="stat-num text-3xl sm:text-4xl md:text-5xl font-semibold break-words text-bone" data-count="511">0</p>
+          <p class="text-xs text-smoke mt-3">Across 1 city and 17 municipalities</p>
+        </div>
+  
+        <div class="stat-card reveal rounded-2xl p-5 sm:p-6 md:p-7" style="background-color: oklch(0.777 0.152 181.912);">
+          <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-6">Province Area</p>
+          <p class="stat-num text-3xl sm:text-4xl md:text-5xl font-semibold break-words text-bone"><span data-count="3053">0</span></p>
+          <p class="text-xs text-smoke mt-3">Square kilometers of plains, rivers &amp; volcanic highlands</p>
+        </div>
+  
+        <div class="stat-card reveal reveal-delay-1 rounded-2xl p-5 sm:p-6 md:p-7" style="background-color: oklch(0.777 0.152 181.912);">
+          <p class="font-mono text-[11px] tracking-wider text-smoke uppercase mb-6">Highest Elevation</p>
+          <p class="stat-num text-3xl sm:text-4xl md:text-5xl font-semibold break-words text-bone" data-count="1655" data-suffix="m">0</p>
+          <p class="text-xs text-smoke mt-3">Mount Iba, on the province's western range</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prev Arrow (Hidden initially) -->
+    <button id="dioramaPrev" data-hover type="button" aria-label="Previous"
+      class="absolute left-1 sm:left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 hidden items-center justify-center text-white/70 hover:text-white hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+      <svg class="w-3 h-5 md:w-3.5 md:h-6" viewBox="0 0 14 24" fill="none"><path d="M11 2L2 12l9 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+   
+    <div id="diorama-gallery" class="relative max-w-6xl mx-auto w-full mt-12 md:mt-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+   
+        <!-- Card 1: Text — Get to Know Us -->
+        <!-- Pinalitan ang <a> ng <div> dito para hindi mag-conflict sa button -->
+        <div class="stat-card reveal rounded-2xl p-5 sm:p-6 md:p-7 flex items-center justify-center px-6 sm:px-8 text-center aspect-[4/3] sm:aspect-auto sm:min-h-[260px] md:min-h-[300px]" style="background-color: oklch(0.777 0.152 181.912);">
+          <div>
+            <p class="eyebrow1 text-teal text-[10px] sm:text-xs uppercase mb-3 sm:mb-4">05 — About Tarlac</p>
+            <h3 class="font-display uppercase font-bold leading-tight text-2xl sm:text-3xl md:text-4xl text-black">
+              Get to<br>Know us!
+            </h3>
+            
+            <!-- Dito in-insert ang button -->
+            <div class="relative max-w-4xl mx-auto text-center mt-8">
+              <a href="about.html" data-hover class="magnetic inline-flex items-center gap-3 bg-ember text-void font-mono text-sm tracking-wide px-8 py-4 rounded-full hover:bg-[oklch(0.953_0.051_180.801)] transition-colors">
+                About
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <!-- Card 2: Photo Collage — Diorama Interior -->
+        <div class="diorama-slide reveal relative rounded-md shadow-xl aspect-[4/3] bg-[#1c1b19]">
+          <div class="absolute inset-0 rounded-md overflow-hidden">
+            <img src="YourDayAtDioramaImages/dio.jpg" alt="Museo ng Kanlahi diorama Map" data-hover
+              data-lightbox="YourDayAtDioramaImages/dio.jpg" data-caption="Museo ng Kanlahi — Diorama Map"
+              class="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105" />
+          </div>
+          <img src="YourDayAtDioramaImages/govcy1.jpg" alt="DGov. CY" data-hover
+            data-lightbox="YourDayAtDioramaImages/govcy1.jpg" data-caption="Gov. CY"
+            class="absolute w-[62%] top-[10%] right-[4%] rounded-sm shadow-lg object-cover aspect-[4/3] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+          <img src="govcy.jpg" alt="Gov. CY" data-hover
+            data-lightbox="govcy.jpg" data-caption="Gov. CY"
+            class="absolute w-[68%] bottom-[6%] left-[6%] rounded-sm shadow-lg object-cover aspect-[16/9] border-2 border-white/90 cursor-pointer transition-transform duration-300 hover:scale-110 hover:z-20" />
+        </div>
+      </div>
+    </div>
+     
+  </section>
+
+
+  
+
+  
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-ash py-8 px-6 md:px-10">
+    <div class="max-w-2xl mx-auto flex flex-col items-center text-center">
+      
+      <!-- Top Branding Logo -->
+      <div class="mb-5 w-full max-w-xs md:max-w-sm px-4">
+        <img class="w-full h-auto object-contain mx-auto" src="LogoIcon/branding.png" alt="Tarlac Tourism Branding" />
+      </div>
+
+      <!-- Social & Contact Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-left font-body text-sm text-bone font-medium mb-5">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/tarlactourism" target="_blank" data-hover class="flex items-center gap-2 hover:text-ember transition-colors">
+          <svg class="w-4 h-4 shrink-0 text-bone" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          <span class="text-sm font-medium">Facebook</span>
+        </a>
+
+        <!-- Gmail -->
+        <a href="mailto:tarlac.tourism2017@gmail.com" data-hover class="flex items-center gap-2 hover:text-ember transition-colors">
+          <svg class="w-4 h-4 shrink-0 text-bone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="text-sm font-medium">Gmail</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/tarlactourism" target="_blank" data-hover class="flex items-center gap-2 hover:text-ember transition-colors">
+          <svg class="w-4 h-4 shrink-0 text-bone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          <span class="text-sm font-medium">Instagram</span>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+639998893869" data-hover class="flex items-center gap-2 hover:text-ember transition-colors">
+          <svg class="w-4 h-4 shrink-0 text-bone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="text-sm font-medium underline underline-offset-4 decoration-1">+63 999 889 3869</span>
+        </a>
+      </div>
+
+      <!-- Copyright Line -->
+      <p class="text-smoke text-[11px] md:text-xs italic font-body">
+        © 2026 Tarlac Provincial Tourism Office, Diwa ng Tarlac. All Rights Reserved.
+      </p>
+
+    </div>
+  </footer>
+
+<script>
+/* =========================================================
+   CUSTOM CURSOR — dot follows instantly, ring trails (lerp)
+   ========================================================= */
+(function () {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let ringX = mouseX, ringY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  const invertTargets = 'a.magnetic, .bg-ember';
+  document.querySelectorAll('[data-hover]').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      ring.classList.add(el.matches(invertTargets) ? 'hovered-invert' : 'hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.classList.remove('hovered', 'hovered-invert');
+    });
+  });
+})();
+
+/* =========================================================
+   MOBILE MENU TOGGLE
+   ========================================================= */
+(function () {
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+  const lines = btn.querySelectorAll('.hamburger-line');
+  let open = false;
+
+  function setOpen(state) {
+    open = state;
+    btn.setAttribute('aria-expanded', String(open));
+    menu.style.maxHeight = open ? menu.scrollHeight + 'px' : '0px';
+    lines[0].style.transform = open ? 'translateY(3px) rotate(45deg)' : 'none';
+    lines[1].style.transform = open ? 'translateY(-3px) rotate(-45deg)' : 'none';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', () => setOpen(!open));
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && open) setOpen(false);
+  });
+})();
+
+/* =========================================================
+   MAGNETIC BUTTON PULL
+   ========================================================= */
+(function () {
+  const items = document.querySelectorAll('.magnetic');
+  items.forEach((el) => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      el.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0,0)';
+    });
+  });
+})();
+
+/* =========================================================
+   3D TILT ON DESTINATION CARDS
+   ========================================================= */
+(function () {
+  document.querySelectorAll('.tilt-card').forEach((card) => {
+    const inner = card.querySelector('.tilt-inner');
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      inner.style.transform = `rotateY(${px * 8}deg) rotateX(${-py * 8}deg) translateZ(0)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      inner.style.transform = 'rotateY(0) rotateX(0)';
+    });
+  });
+})();
+
+/* =========================================================
+   SCROLL REVEAL (IntersectionObserver)
+   ========================================================= */
+(function () {
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach((el) => io.observe(el));
+})();
+
+/* =========================================================
+   ANIMATED COUNTERS
+   ========================================================= */
+(function () {
+  const counters = document.querySelectorAll('[data-count]');
+  const format = (val, el) => {
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const num = decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('en-US');
+    return num + suffix;
+  };
+  const run = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const duration = 1400;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = format(target * eased, el);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        run(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach((el) => io.observe(el));
+})();
+
+/* =========================================================
+   HERO TYPEWRITER
+   ========================================================= */
+(function () {
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+  const words = ['511 Barangays', '17 Municipalities', '1 City', '7 Heritage Cultures', 'Mount Pinatubo\u2019s crater lake', '3,053 sq. km of discovery'];
+  let w = 0, c = 0, deleting = false;
+
+  function tick() {
+    const word = words[w];
+    if (!deleting) {
+      c++;
+      el.textContent = word.slice(0, c);
+      if (c === word.length) { deleting = true; setTimeout(tick, 1400); return; }
+    } else {
+      c--;
+      el.textContent = word.slice(0, c);
+      if (c === 0) { deleting = false; w = (w + 1) % words.length; }
+    }
+    setTimeout(tick, deleting ? 35 : 65);
+  }
+  tick();
+})();
+
+
+
+/* =========================================================
+   CHART.JS — TOURIST GROWTH (SAMPLE DATA)
+   ========================================================= */
+(function () {
+  const ctx = document.getElementById('growthChart');
+  if (!ctx || typeof Chart === 'undefined') return;
+
+  const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, ctx.parentElement.clientHeight || 340);
+  gradient.addColorStop(0, 'rgba(13,148,136,0.35)');
+  gradient.addColorStop(1, 'rgba(13,148,136,0)');
+
+  new Chart(ctx, { 
+    type: 'line', 
+    data: { 
+      labels: ['2023', '2024', '2025', '2026'], 
+      datasets: [{ 
+        label: 'Day-Tour Visitor arrivals', 
+        data: [1536728, 1639520, 1369883, 686542], 
+        borderColor: '#0d9488', 
+        backgroundColor: gradient, borderWidth: 2, 
+        pointBackgroundColor: '#ffffff', 
+        pointBorderColor: '#0d9488', 
+        pointBorderWidth: 2, 
+        pointRadius: 4, 
+        tension: 0.4, 
+        fill: true, }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      resizeDelay: 100,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#f4f4f5',
+          borderColor: '#d4d4d8',
+          borderWidth: 1,
+          titleColor: '#000000',
+          bodyColor: '#000000',
+          titleFont: { family: 'IBM Plex Mono' },
+          bodyFont: { family: 'IBM Plex Mono' },
+          padding: 10,
+        }
+      },
+      scales: {
+        x: { grid: { color: '#d4d4d8' }, ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 14 } } },
+        y: {
+          grid: { color: '#d4d4d8' },
+          ticks: {
+            color: '#000000',
+            font: { family: 'IBM Plex Mono', size: 11 },
+            callback: (v) => (v / 1000) + 'k'
+          }
+        }
+      }
+    }
+  });
+})();
+
+/* =========================================================
+   CHART.JS — TOURIST GROWTH (Night-Stayed)
+   ========================================================= */
+
+(function () {
+      const ctx = document.getElementById('growthChart1');
+      if (!ctx || typeof Chart === 'undefined') return;
+    
+      const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, ctx.parentElement.clientHeight || 340);
+      gradient.addColorStop(0, 'rgba(13,148,136,0.35)');
+      gradient.addColorStop(1, 'rgba(13,148,136,0)');
+    
+      new Chart(ctx, { 
+        type: 'line', 
+        data: { 
+          labels: ['2023', '2024', '2025', '2026'], 
+          datasets: [{ 
+            label: 'Nigth-Stayed Visitor arrivals', 
+            data: [127403, 138333, 166668, 102437], 
+            borderColor: '#0d9488', 
+            backgroundColor: gradient, borderWidth: 2, 
+            pointBackgroundColor: '#ffffff', 
+            pointBorderColor: '#0d9488', 
+            pointBorderWidth: 2, 
+            pointRadius: 4, 
+            tension: 0.4, 
+            fill: true, }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          resizeDelay: 100,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#f4f4f5',
+              borderColor: '#d4d4d8',
+              borderWidth: 1,
+              titleColor: '#000000',
+              bodyColor: '#000000',
+              titleFont: { family: 'IBM Plex Mono' },
+              bodyFont: { family: 'IBM Plex Mono' },
+              padding: 10,
+            }
+          },
+          scales: {
+            x: { grid: { color: '#d4d4d8' }, ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 14 } } },
+            y: {
+              grid: { color: '#d4d4d8' },
+              ticks: {
+                color: '#000000',
+                font: { family: 'IBM Plex Mono', size: 11 },
+                callback: (v) => (v / 1000) + 'k'
+              }
+            }
+          }
+        }
+      });
+})();
+
+/* =========================================================
+   CHART.JS — LGU SUBMISSION STATUS (DONUT)
+   ========================================================= */
+   (function () {
+  const ctx = document.getElementById('submissionDonut');
+  if (!ctx || typeof Chart === 'undefined') return;
+
+  const labels = ['Camiling','Anao','Capas','La Paz','San Manuel','Concepcion','Ramos','San Clemente','Victoria','San Jose','Tarlac City','Bamban','Mayantoc'];
+  const data   = [17, 12.8, 12.8, 12.8, 8.5, 6.4, 6.4, 6.4, 6.4, 4.6, 3.5, 1.7, 1.7];
+  const colors = ['#7f1d1d','#71717a','#0d9488','#a21caf','#a1a1aa','#22c55e','#166534','#be123c','#f97316','#0ea5a3','#d4d4d8','#a3a34a','#3f3f46'];
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderColor: '#ffffff', borderWidth: 2 }] },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#f4f4f5', borderColor: '#d4d4d8', borderWidth: 1,
+          titleColor: '#000000', bodyColor: '#000000',
+          titleFont: { family: 'IBM Plex Mono' }, bodyFont: { family: 'IBM Plex Mono' }, padding: 10,
+          callbacks: { label: (c) => `${c.label}: ${c.raw}%` }
+        }
+      }
+    }
+  });
+
+  const legendEl = document.getElementById('donutLegend');
+  if (legendEl) {
+    legendEl.innerHTML = labels.map((l, i) =>
+      `<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${colors[i]}"></span>${l}</div>`
+    ).join('');
+  }
+})();
+
+/* =========================================================
+   CHART.JS — VISITOR ARRIVALS BY SITE (BAR + LINE)
+   ========================================================= */
+   (function () {
+  const ctx = document.getElementById('arrivalBarChart');
+  if (!ctx || typeof Chart === 'undefined') return;
+
+  const labels   = ['Concepcion','Mayantoc','San Jose','San Clemente','Capas','San Manuel','Tarlac City','La Paz','Ramos','Camiling','Anao','Bamban','Victoria'];
+  const totals   = [228700, 131800, 104500, 81700, 31700, 25300, 24300, 23900, 15600, 11500, 3000, 3400, 3600];
+
+  new Chart(ctx, {
+    data: {
+      labels,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Total Stats',
+          data: totals,
+          backgroundColor: '#0d9488',
+          borderRadius: 4,
+          order: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      resizeDelay: 100,
+      plugins: {
+        legend: {
+          position: 'top', align: 'center',
+          labels: { color: '#000000', font: { family: 'IBM Plex Mono', size: 14 }, boxWidth: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#0d9488', borderColor: '#d4d4d8', borderWidth: 1,
+          titleFont: { family: 'IBM Plex Mono' }, bodyFont: { family: 'IBM Plex Mono' }, padding: 10
+        }
+      },
+      scales: {
+        x: { grid: { color: '#d4d4d8' }, ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 10 } } },
+        y: {
+          grid: { color: '#d4d4d8' },
+          ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 11 }, callback: (v) => (v / 1000) + 'K' }
+        },
+        y1: {
+          position: 'right',
+          grid: { display: true },
+        }
+      }
+    }
+  });
+})();
+
+/* =========================================================
+   CHART.JS — VISITOR ARRIVALS BY SITE (BAR + LINE)1
+   ========================================================= */
+
+(function () {
+  const ctx = document.getElementById('arrivalBarChart1');
+  if (!ctx || typeof Chart === 'undefined') return;
+
+  const labels   = ['Concepcion','Mayantoc','San Jose','San Clemente','Capas','San Manuel','Tarlac City','La Paz','Ramos','Camiling','Anao','Bamban','Victoria'];
+  const domestic   = [228700, 131800, 104500, 81700, 31700, 25300, 24300, 23900, 15600, 11500, 3000, 3400, 3600];
+  const foreign   = [2287, 1318, 1045, 817, 317, 253, 243, 239, 156, 115, 300, 340, 360];
+
+  new Chart(ctx, {
+    data: {
+      labels,
+      datasets: [
+        {
+          type: 'line',
+          label: 'Domestic',
+          data: domestic,
+          borderColor: '#1aa6b7',
+          backgroundColor: '#0d9488',
+          borderRadius: 4,
+          order: 2
+        },
+        {
+          type: 'line',
+          label: 'Forgeign',
+          data: foreign,
+          borderColor: '#1aa6b7',
+          backgroundColor: '#0d9488',
+          borderRadius: 4,
+          order: 2
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      resizeDelay: 100,
+      plugins: {
+        legend: {
+          position: 'bottom', align: 'center',
+          labels: { color: '#000000', font: { family: 'IBM Plex Mono', size: 14 }, boxWidth: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#0d9488', borderColor: '#d4d4d8', borderWidth: 1,
+          titleFont: { family: 'IBM Plex Mono' }, bodyFont: { family: 'IBM Plex Mono' }, padding: 10
+        }
+      },
+      scales: {
+        x: { grid: { color: '#d4d4d8' }, 
+        ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 10     
+        } 
+      } 
+      },
+        y: {
+          grid: { color: '#d4d4d8' },
+          ticks: { color: '#000000', font: { family: 'IBM Plex Mono', size: 11 }, callback: (v) => (v / 1000) + 'K' }
+        },
+        y1: {
+          position: 'right',
+          grid: { display: true },
+        }
+      }
+    }
+  });
+})();
+
+ /* =========================================================
+     DIORAMA SHOWCASE — prev/next paging between slide groups
+     ========================================================= */
+     (function () {
+    const section = document.getElementById('diorama');
+    if (!section) return;
+    const prevBtn = document.getElementById('dioramaPrev');
+    const nextBtn = document.getElementById('dioramaNext');
+    const slides = Array.from(section.querySelectorAll('.diorama-slide, .stat-card'));
+    const perPage = 4;
+    const totalPages = Math.max(1, Math.ceil(slides.length / perPage));
+    let currentPage = 0;
+ 
+    function render() {
+      slides.forEach((slide, i) => {
+        const page = Math.floor(i / perPage);
+        slide.style.display = (page === currentPage) ? '' : 'none';
+      });
+    }
+ 
+    prevBtn && prevBtn.addEventListener('click', () => {
+      currentPage = (currentPage - 1 + totalPages) % totalPages;
+      render();
+    });
+    nextBtn && nextBtn.addEventListener('click', () => {
+      currentPage = (currentPage + 1) % totalPages;
+      render();
+    });
+ 
+    render();
+  })();
+
+ 
+  /* =========================================================
+     DIORAMA LIGHTBOX — click any collage photo to view full size
+     ========================================================= */
+     (function () {
+    const modal = document.getElementById('diorama-lightbox');
+    const img = document.getElementById('diorama-lightbox-img');
+    const caption = document.getElementById('diorama-lightbox-caption');
+    const closeBtn = document.getElementById('diorama-lightbox-close');
+    if (!modal || !img) return;
+ 
+    function openModal(src, cap) {
+      img.src = src;
+      img.alt = cap || '';
+      caption.textContent = cap || '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+      img.src = '';
+    }
+ 
+    document.querySelectorAll('#diorama-gallery [data-lightbox]').forEach((el) => {
+      el.addEventListener('click', () => {
+        openModal(el.getAttribute('data-lightbox'), el.getAttribute('data-caption'));
+      });
+    });
+ 
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  })();
+
+/* =========================================================
+   MEGA MENU — "UNLOCK TARLAC" full-width dropdown
+   ========================================================= */
+(function () {
+  const btn = document.getElementById('megaMenuBtn');
+  const chevron = document.getElementById('megaMenuChevron');
+  const menu = document.getElementById('mega-menu');
+  const closeBtn = document.getElementById('megaMenuClose');
+  const tabs = document.querySelectorAll('.mega-tab');
+  const panels = document.querySelectorAll('.mega-panel');
+  if (!btn || !menu) return;
+
+  let open = false;
+
+  function setOpen(state) {
+    open = state;
+    btn.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('hidden', !open);
+    if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!open);
+  });
+
+  closeBtn && closeBtn.addEventListener('click', () => setOpen(false));
+
+  document.addEventListener('click', (e) => {
+    if (open && !menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open) setOpen(false);
+  });
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.megaTab;
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('text-bone', active);
+        t.classList.toggle('font-semibold', active);
+        t.classList.toggle('text-smoke', !active);
+      });
+      panels.forEach((p) => {
+        p.classList.toggle('hidden', p.dataset.megaPanel !== target);
+      });
+    });
+  });
+})();
+
+/* =========================================================
+   MEGA MENU (MOBILE) — tab switching inside slide-down menu
+   ========================================================= */
+(function () {
+  const tabsM = document.querySelectorAll('.mega-tab-m');
+  const panelsM = document.querySelectorAll('.mega-panel-m');
+  if (!tabsM.length) return;
+
+  tabsM.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.megaTabM;
+      tabsM.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('text-bone', active);
+        t.classList.toggle('font-semibold', active);
+        t.classList.toggle('text-smoke', !active);
+      });
+      panelsM.forEach((p) => {
+        p.classList.toggle('hidden', p.dataset.megaPanelM !== target);
+      });
+
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu && mobileMenu.style.maxHeight !== '0px' && mobileMenu.style.maxHeight !== '') {
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+
+/* =========================================================
+   EXPLORE GALLERY — category tabs, location filter, and
+   SMOOTH drag-to-scroll functionality (Desktop & Mobile).
+   ========================================================= */
+   (function () {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  const tabs = Array.from(document.querySelectorAll('#galleryCategoryTabs .gallery-tab'));
+  const locationSel = document.getElementById('galleryLocation');
+  const cards = Array.from(grid.querySelectorAll('.gallery-card'));
+  const emptyMsg = document.getElementById('galleryEmpty');
+
+  let activeCategory = 'all';
+
+  // --- Filtering Logic ---
+  function applyFilters() {
+    const loc = locationSel ? locationSel.value : 'all';
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cCat = card.dataset.category;
+      const cLoc = card.dataset.location;
+      
+      const matches =
+        (activeCategory === 'all' || cCat === activeCategory) &&
+        (loc === 'all' || cLoc === loc);
+
+      card.style.display = matches ? '' : 'none';
+      if (matches) visible++;
+    });
+
+    if (emptyMsg) emptyMsg.classList.toggle('hidden', visible !== 0);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      activeCategory = tab.dataset.category;
+      
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('active-tab', isActive);
+        
+        if (isActive) {
+          t.classList.remove('bg-void', 'text-smoke');
+          t.classList.add('bg-ember', 'text-void');
+        } else {
+          t.classList.remove('bg-ember', 'text-void');
+          t.classList.add('bg-void', 'text-smoke');
+        }
+      });
+
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      applyFilters();
+    });
+  });
+
+  if (locationSel) locationSel.addEventListener('change', applyFilters);
+  applyFilters();
+
+  // --- SMOOTH Drag to Scroll Logic ---
+  let isDown = false;
+  let didDrag = false;
+  let startX;
+  let scrollLeft;
+
+  // Helper to start the drag
+  function startDrag(x) {
+    isDown = true;
+    didDrag = false;
+    startX = x - grid.offsetLeft;
+    scrollLeft = grid.scrollLeft;
+    grid.style.cursor = 'grabbing';
+    
+    // CRITICAL: Disable snapping while dragging so it doesn't stutter!
+    grid.style.scrollSnapType = 'none'; 
+  }
+
+  // Helper to stop the drag
+  function stopDrag() {
+    isDown = false;
+    grid.style.cursor = 'grab';
+    
+    // Re-enable snapping when the user lets go
+    grid.style.scrollSnapType = ''; 
+  }
+
+  // Helper to handle the drag movement
+  function moveDrag(e, x) {
+    if (!isDown) return;
+    
+    // Prevent default to stop text highlighting/image dragging on desktop
+    if (e.cancelable && e.type !== 'touchmove') {
+      e.preventDefault(); 
+    }
+
+    const walk = (x - startX) * 1.5; // Multiply by 1.5 for slightly faster swipe
+    if (Math.abs(walk) > 5) didDrag = true; // threshold to differentiate click vs drag
+    
+    grid.scrollLeft = scrollLeft - walk;
+  }
+
+  // 3. Mouse Wheel Event (Scroll up/down to slide left/right)
+  grid.addEventListener('wheel', (e) => {
+    // Check if the scroll is mostly vertical (standard mouse wheel)
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault(); // Stop the entire page from scrolling up/down
+      
+      // Temporarily disable snapping for a smoother mouse-wheel scroll
+      grid.style.scrollSnapType = 'none';
+      
+      grid.scrollLeft += e.deltaY; // Convert vertical scroll to horizontal scroll
+      
+      // Re-enable snapping after the user stops scrolling (debounce)
+      clearTimeout(grid.wheelTimeout);
+      grid.wheelTimeout = setTimeout(() => {
+        grid.style.scrollSnapType = '';
+      }, 150);
+    }
+  }, { passive: false }); // passive: false is required to allow preventDefault()
+
+  // 2. Touch Events (Mobile/Tablet)
+  grid.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX), { passive: true });
+  grid.addEventListener('touchend', stopDrag);
+  grid.addEventListener('touchcancel', stopDrag);
+  grid.addEventListener('touchmove', (e) => {
+    // Only intercept if user is swiping horizontally, let them scroll down the page naturally
+    if (isDown) {
+        moveDrag(e, e.touches[0].pageX);
+    }
+  }, { passive: true });
+
+  // 3. Prevent link click if the user was actively dragging
+  grid.addEventListener('click', (e) => {
+    if (didDrag) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+})();
+
+
+
+</script>
+</body>
+</html>
