@@ -62,6 +62,84 @@
   });
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  // ===================== MOBILE MENU TOGGLE =====================
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const hamburgerLines = menuBtn.querySelectorAll('.hamburger-line');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      
+      // Toggle accessibility attribute
+      menuBtn.setAttribute('aria-expanded', !isExpanded);
+
+      if (!isExpanded) {
+        // OPEN MENU: Remove max-h-0 and add a large max-height to trigger transition
+        mobileMenu.classList.remove('max-h-0');
+        mobileMenu.classList.add('max-h-[2000px]', 'border-b');
+        
+        // Transform hamburger icon into an "X"
+        if (hamburgerLines.length >= 2) {
+          hamburgerLines[0].style.transform = 'translateY(3.5px) rotate(45deg)';
+          hamburgerLines[1].style.transform = 'translateY(-3.5px) rotate(-45deg)';
+        }
+      } else {
+        // CLOSE MENU: Restore max-h-0 to hide
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-[2000px]', 'border-b');
+        
+        // Restore hamburger icon
+        if (hamburgerLines.length >= 2) {
+          hamburgerLines[0].style.transform = 'none';
+          hamburgerLines[1].style.transform = 'none';
+        }
+      }
+    });
+  }
+
+  // ===================== MEGA MENU TOGGLE =====================
+  const megaMenuBtn = document.getElementById('megaMenuBtn');
+  const megaMenu = document.getElementById('mega-menu');
+  const megaMenuClose = document.getElementById('megaMenuClose');
+  const megaMenuChevron = document.getElementById('megaMenuChevron');
+
+  if (megaMenuBtn && megaMenu && megaMenuClose) {
+    // Open Mega Menu
+    megaMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent immediate closing
+      const isHidden = megaMenu.classList.contains('hidden');
+      
+      if (isHidden) {
+        megaMenu.classList.remove('hidden');
+        megaMenuBtn.setAttribute('aria-expanded', 'true');
+        if (megaMenuChevron) megaMenuChevron.style.transform = 'rotate(180deg)';
+      } else {
+        megaMenu.classList.add('hidden');
+        megaMenuBtn.setAttribute('aria-expanded', 'false');
+        if (megaMenuChevron) megaMenuChevron.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    // Close Mega Menu via Close Button
+    megaMenuClose.addEventListener('click', () => {
+      megaMenu.classList.add('hidden');
+      megaMenuBtn.setAttribute('aria-expanded', 'false');
+      if (megaMenuChevron) megaMenuChevron.style.transform = 'rotate(0deg)';
+    });
+
+    // Close Mega Menu if clicking outside of it
+    document.addEventListener('click', (e) => {
+      if (!megaMenu.classList.contains('hidden') && !megaMenu.contains(e.target) && !megaMenuBtn.contains(e.target)) {
+        megaMenu.classList.add('hidden');
+        megaMenuBtn.setAttribute('aria-expanded', 'false');
+        if (megaMenuChevron) megaMenuChevron.style.transform = 'rotate(0deg)';
+      }
+    });
+  }
+});
+
 /* =========================================================
    MAGNETIC BUTTON PULL
    ========================================================= */
